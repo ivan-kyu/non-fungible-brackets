@@ -1,0 +1,22 @@
+{
+  "name": "mainnet-production-kod",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy-production": "graph deploy --node https://api.thegraph.com/deploy/ nicksinch/mainnet-production-kod",
+    "deploy-preview": "graph deploy --node https://api.thegraph.com/deploy/ nicksinch/nfb-diamond-graph",
+    "deploy-dev": "graph deploy --node https://api.thegraph.com/deploy/ nicksinch/diamond-dev-graph",
+    "create-local": "graph create --node http://localhost:8020/ nicksinch/mainnet-production-kod",
+    "remove-local": "graph remove --node http://localhost:8020/ nicksinch/mainnet-production-kod",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 nicksinch/mainnet-production-kod",
+    "test": "graph test"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.36.1",
+    "@graphprotocol/graph-ts": "0.28.1"
+  },
+  "devDependencies": {
+    "matchstick-as": "0.5.0"
+  }
+}

@@ -1,0 +1,150 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: NFBBracket
+    network: matic
+    source:
+      address: "0x565c3931493EEAC0E30170cC238D9Db79E0496Ae"
+      abi: NFBBracket
+      startBlock: 40265774
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - LogBracketMinted
+      abis:
+        - name: NFBBracket
+          file: ./abis/NFBBracket.json
+      eventHandlers:
+        - event: LogBracketMinted((uint256[],uint32,uint32),address,uint256)
+          handler: handleLogBracketMinted
+      file: ./src/i-diamond.ts
+  - kind: ethereum/contract
+    name: IDiamond
+    network: matic
+    source:
+      address: "0xC636e8E174b1929daB943F7Ed6B6E738e1219fF7"
+      abi: IDiamond
+      startBlock: 40266559
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - BracketLengthSet
+        - DelegateSuccessful
+        - LogAddPool
+        - LogAddRewardDistribution
+        - LogAddSportsLeague
+        - LogAddTournament
+        - LogAddTournamentFormat
+        - LogBracketResultsUpdated
+        - LogBracketScoreUpdated
+        - LogBracketScoresUpdated
+        - LogBracketUpdated
+        - LogDisableSportsLeague
+        - LogDisableTournamentFormat
+        - LogFundsPulledOut
+        - LogNftUpdatePriceUpdated
+        - LogPoolEntered
+        - LogRewardClaimed
+        - LogRoundReverted
+        - LogRoundUpdated
+        - LogSetRoundBounds
+        - LogStakePoolUpdated
+        - LogTournamentSeasonUpdated
+        - LogWithdrawFundsLeft
+        - MaximumPointsSet
+        - OwnershipTransferred
+        - Paused
+        - RoleAdminChanged
+        - RoleGranted
+        - RoleRevoked
+        - RoundIndexesSet
+        - TournamentRoundsCountSet
+        - TournamentStageSet
+        - TrustedForwarderSet
+        - Unpaused
+        - Tournament
+        - Pool
+        - Bracket
+        - PoolBracket
+      abis:
+        - name: IDiamond
+          file: ./abis/IDiamond.json
+      #callHandlers:
+      #  - function: getBracketPotential(uint256,(uint256[],uint32,uint32)) # its not picking this up for some reason
+      #    handler: handleBracketPotential
+      eventHandlers:
+        - event: BracketLengthSet(uint256,uint8)
+          handler: handleBracketLengthSet
+        - event: DelegateSuccessful(indexed uint256,address,address)
+          handler: handleDelegateSuccessful
+        - event: LogAddPool(indexed uint256,indexed uint256,string,uint256,uint256,uint256,address,uint256,uint8,uint256,bool,address,address,address)
+          handler: handleLogAddPool
+        - event: LogAddRewardDistribution(uint256,string,bool,uint256[],uint256[],address)
+          handler: handleLogAddRewardDistribution
+        - event: LogAddSportsLeague(indexed uint256,string,uint256,address)
+          handler: handleLogAddSportsLeague
+        - event: LogAddTournament(indexed uint256,indexed uint256,string,uint256,uint16,uint256,uint256,address)
+          handler: handleLogAddTournament
+        - event: LogAddTournamentFormat(indexed uint256,string,uint256,address)
+          handler: handleLogAddTournamentFormat
+        - event: LogBracketResultsUpdated(address,uint256[],uint32,uint32)
+          handler: handleLogBracketResultsUpdated
+        - event: LogBracketScoreUpdated(uint256,uint16,uint16,uint8,address)
+          handler: handleLogBracketScoreUpdated
+        - event: LogBracketScoresUpdated(address)
+          handler: handleLogBracketScoresUpdated
+        - event: LogBracketUpdated((uint256[],uint32,uint32),address,uint256,uint256,uint8)
+          handler: handleLogBracketUpdated
+        - event: LogDisableSportsLeague(indexed uint256,address)
+          handler: handleLogDisableSportsLeague
+        - event: LogDisableTournamentFormat(indexed uint256,address)
+          handler: handleLogDisableTournamentFormat
+        - event: LogFundsPulledOut(address,uint256)
+          handler: handleLogFundsPulledOut
+        - event: LogNftUpdatePriceUpdated(uint256,address)
+          handler: handleLogNftUpdatePriceUpdated
+        - event: LogPoolEntered(indexed uint256,indexed uint256,address)
+          handler: handleLogPoolEntered
+        - event: LogRewardClaimed(address,uint256,uint256)
+          handler: handleLogRewardClaimed
+        - event: LogRoundReverted(address,uint8,uint8)
+          handler: handleLogRoundReverted
+        - event: LogRoundUpdated(address,uint256,uint8,uint8)
+          handler: handleLogRoundUpdated
+        - event: LogSetRoundBounds(uint256,uint8,uint256,uint256)
+          handler: handleLogSetRoundBounds
+        - event: LogStakePoolUpdated(uint256,uint256,address)
+          handler: handleLogStakePoolUpdated
+        - event: LogTournamentSeasonUpdated(uint256,uint256)
+          handler: handleLogTournamentSeasonUpdated
+        - event: LogWithdrawFundsLeft(uint256,address,uint256)
+          handler: handleLogWithdrawFundsLeft
+        - event: MaximumPointsSet(uint256,uint16)
+          handler: handleMaximumPointsSet
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: Paused(indexed address)
+          handler: handlePaused
+        - event: RoleAdminChanged(indexed bytes32,indexed bytes32,indexed bytes32)
+          handler: handleRoleAdminChanged
+        - event: RoleGranted(indexed bytes32,indexed address,indexed address)
+          handler: handleRoleGranted
+        - event: RoleRevoked(indexed bytes32,indexed address,indexed address)
+          handler: handleRoleRevoked
+        - event: RoundIndexesSet(uint256,uint8[])
+          handler: handleRoundIndexesSet
+        - event: TournamentRoundsCountSet(uint256,uint8)
+          handler: handleTournamentRoundsCountSet
+        - event: TournamentStageSet(uint256,uint8)
+          handler: handleTournamentStageSet
+        - event: TrustedForwarderSet(address,address)
+          handler: handleTrustedForwarderSet
+        - event: Unpaused(indexed address)
+          handler: handleUnpaused
+      file: ./src/i-diamond.ts

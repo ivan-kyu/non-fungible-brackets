@@ -1,0 +1,43 @@
+node_modules
+
+# Buidler files
+cache
+artifacts
+abi
+/typechain
+data
+
+
+# Coverage
+coverage
+coverage.json
+
+# Env settings
+.env
+
+.idea
+
+
+#Local settings
+local/
+
+# IDE settings
+typechain/
+
+# Deploy settings
+contracts.json
+
+
+generated/
+build/
+
+yarn.lock
+tmp
+.DS_Store
+
+# Subgraph
+nfb-diamond-graph/build
+nfb-diamond-graph/generated
+nfb-diamond-graph/node_modules
+nfb-diamond-graph/tests/.bin
+nfb-diamond-graph/tests/.latest.json

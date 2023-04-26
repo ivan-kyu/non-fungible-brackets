@@ -1,0 +1,420 @@
+type BracketLengthSet @entity(immutable: true) {
+  id: Bytes!
+  tournamentId: BigInt! # uint256
+  bracketLength: Int! # uint8
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type DelegateSuccessful @entity(immutable: true) {
+  id: Bytes!
+  poolId: BigInt! # uint256
+  coldWalletAddress: Bytes! # address
+  callerAddress: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type LogAddRewardDistribution @entity(immutable: true) {
+  id: String!
+  rewardDistributionId: BigInt! # uint256
+  name: String! # string
+  rewardPercentages: [BigInt!]!
+  rewardRanges: [BigInt!]!
+  isAllOrNothing: Boolean! # bool
+  callerAddress: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type LogAddSportsLeague @entity(immutable: true) {
+  id: Bytes!
+  sportsLeagueId: BigInt! # uint256
+  name: String! # string
+  sport: BigInt! # uint256
+  callerAddress: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type LogBracketMinted @entity(immutable: true) {
+  id: Bytes!
+  triggeredBy: Bytes! # address
+  tokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type LogBracketResultsUpdated @entity(immutable: true) {
+  id: Bytes!
+  from: Bytes! # address
+  teamsIds: [BigInt!]! # uint256[]
+  finalsTeamOneScore: BigInt! # uint32
+  finalsTeamTwoScore: BigInt! # uint32
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type LogBracketScoreUpdated @entity(immutable: true) {
+  id: Bytes!
+  tokenId: BigInt! # uint256
+  roundScore: Int! # uint16
+  score: Int! # uint16
+  round: Int! # uint8
+  owner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type LogBracketScoresUpdated @entity(immutable: true) {
+  id: Bytes!
+  triggeredBy: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type LogBracketUpdated @entity(immutable: true) {
+  id: Bytes!
+  callerAddress: Bytes! # address
+  poolId: BigInt! # uint256
+  tokenId: BigInt! # uint256
+  startUpdateFromIndex: Int! # uint8
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type LogDisableSportsLeague @entity(immutable: true) {
+  id: Bytes!
+  sportsLeagueId: BigInt! # uint256
+  callerAddress: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type LogDisableTournamentFormat @entity(immutable: true) {
+  id: Bytes!
+  tournamentId: BigInt! # uint256
+  callerAddress: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type LogFundsPulledOut @entity(immutable: true) {
+  id: Bytes!
+  to: Bytes! # address
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type LogNftUpdatePriceUpdated @entity(immutable: true) {
+  id: Bytes!
+  newNftUpdatePrice: BigInt! # uint256
+  callerAddress: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type LogRewardClaimed @entity(immutable: true) {
+  id: Bytes!
+  triggeredBy: Bytes! # address
+  tokenId: BigInt! # uint256
+  reward: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type LogRoundReverted @entity(immutable: true) {
+  id: Bytes!
+  from: Bytes! # address
+  newRound: Int! # uint8
+  newRoundIndex: Int! # uint8
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type LogRoundUpdated @entity(immutable: true) {
+  id: Bytes!
+  from: Bytes! # address
+  tournamentId: BigInt! # uint256
+  newRound: Int! # uint8
+  newRoundIndex: Int! # uint8
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type LogSetRoundBoundsRange @entity(immutable: true) {
+  id: Bytes!
+  tournamentId: BigInt! # uint256
+  round: Int! # uint8
+  startRound: BigInt! # uint256
+  endRound: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type LogStakePoolUpdated @entity(immutable: true) {
+  id: Bytes!
+  poolId: BigInt! # uint256
+  newTotalStakesByPool: BigInt! # uint256
+  callerAddress: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type LogTournamentSeasonUpdated @entity(immutable: true) {
+  id: Bytes!
+  _sportsLeagueId: BigInt! # uint256
+  _seasonId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type LogWithdrawFundsLeft @entity(immutable: true) {
+  id: Bytes!
+  poolId: BigInt! # uint256
+  to: Bytes! # address
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type MaximumPointsSet @entity(immutable: true) {
+  id: Bytes!
+  tournamentId: BigInt! # uint256
+  maxPoints: Int! # uint16
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipTransferred @entity(immutable: true) {
+  id: Bytes!
+  previousOwner: Bytes! # address
+  newOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Paused @entity(immutable: true) {
+  id: Bytes!
+  account: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RoleAdminChanged @entity(immutable: true) {
+  id: Bytes!
+  role: Bytes! # bytes32
+  previousAdminRole: Bytes! # bytes32
+  newAdminRole: Bytes! # bytes32
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RoleGranted @entity(immutable: true) {
+  id: Bytes!
+  role: Bytes! # bytes32
+  account: Bytes! # address
+  sender: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RoleRevoked @entity(immutable: true) {
+  id: Bytes!
+  role: Bytes! # bytes32
+  account: Bytes! # address
+  sender: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RoundIndexesSet @entity(immutable: true) {
+  id: Bytes!
+  tournamentId: BigInt! # uint256
+  roundIndexes: [Int]! # uint8[]
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TournamentRoundsCountSet @entity(immutable: true) {
+  id: Bytes!
+  tournamentId: BigInt! # uint256
+  roundsCount: Int! # uint8
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TournamentStageSet @entity(immutable: true) {
+  id: Bytes!
+  tournamentId: BigInt! # uint256
+  tournamentStage: Int! # uint8
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TrustedForwarderSet @entity(immutable: true) {
+  id: Bytes!
+  oldAddress: Bytes! # address
+  newAddress: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Unpaused @entity(immutable: true) {
+  id: Bytes!
+  account: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type LogAddTournament @entity(immutable: true) {
+  id: Bytes!
+  tournamentId: BigInt! # uint256
+  sportsLeagueId: BigInt! # uint256
+  name: String! # string
+  tournamentFormatId: BigInt! # uint256
+  season: Int! # uint256
+  openFrom: BigInt!
+  openTo: BigInt!
+  callerAddress: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type LogAddPool @entity(immutable: true) {
+  id: Bytes!
+  poolId: BigInt! # uint256
+  tournamentId: BigInt! # uint256
+  name: String! # string
+  entryFee: BigInt! # uint256
+  prizeModelType: BigInt! # uint256
+  stakeToPlayAmount: BigInt! # uint256
+  accessTokenAddress: Bytes! # address
+  royaltyType: Int!
+  royaltyAmount: Int!
+  allowEditableBrackets: Boolean! # bool
+  currencyAddress: Bytes! #address
+  poolFundAddress: Bytes! #address
+  callerAddress: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type LogPoolEntered @entity(immutable: true) {
+  id: Bytes!
+  poolId: BigInt! # uint256
+  tokenId: BigInt! # uint256
+  callerAddress: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+enum TournamentType {
+  Brackets
+  RoundRobin
+  Combined
+}
+
+type LogAddTournamentFormat @entity(immutable: true) {
+  id: String!
+  tournamentFormatId: BigInt! # uint256
+  name: String! # string
+  tournamentType: TournamentType! # enum
+  callerAddress: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Tournament @entity {
+  id: String!
+  sportsLeagueId: BigInt! # uint256
+  name: String! # string
+  tournamentFormat: LogAddTournamentFormat! # uint256
+  season: Int! # uint256
+  openFrom: BigInt!
+  openTo: BigInt!
+  callerAddress: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+  pools: [Pool!]! @derivedFrom(field: "tournament")
+}
+
+type Pool @entity {
+  id: String!
+  tournament: Tournament!
+  distribution: LogAddRewardDistribution!
+  poolId: BigInt! # uint256
+  name: String! # string
+  entryFee: BigInt! # uint256
+  prizeModelType: BigInt! # uint256
+  stakeToPlayAmount: BigInt! # uint256
+  accessTokenAddress: Bytes! # address
+  allowEditableBrackets: Boolean! # bool
+  royaltyType: Int!
+  royaltyAmount: Int!
+  totalStaked: BigInt!
+  currencyAddress: Bytes!
+  fundingAddress: Bytes!
+  creatorAddress: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+  currentPoolValue: BigInt!
+  numEntrants: BigInt!
+  brackets: [PoolBracket!]! @derivedFrom(field: "pool")
+}
+
+type Bracket @entity {
+  id: String!
+  pools: [PoolBracket!]! @derivedFrom(field: "bracket")
+  pickedWinners: [BigInt!]!
+  finalsTeam1Points: BigInt!
+  finalsTeam2Points: BigInt!
+  pointsByRound: [BigInt!]!
+  totalPoints: BigInt!
+  #pointsRemaining: BigInt! # call getBracketPotential, needs work to make this workable, but currently cannot get this to work as call handler
+  creator: Bytes! # address use triggeredBy
+}
+
+type PoolBracket @entity {
+  id: String!
+  pool: Pool!
+  bracket: Bracket!
+}

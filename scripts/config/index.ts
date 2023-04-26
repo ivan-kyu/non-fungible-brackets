@@ -1,0 +1,26 @@
+export const ROUND_INDEXES = [0, 32, 48, 56, 60, 62];
+
+export const TOP1_TIERED_REWARD_RANGES = [1, 2];
+
+export const TOP1_TIERED_REWARD_PERCENTAGES = [10000, 0];
+
+export const TOP5_TIERED_REWARD_RANGES = [1, 2, 3, 4, 5, 6];
+
+export const TOP5_TIERED_REWARD_PERCENTAGES = [3700, 2500, 1500, 1200, 1100, 0];
+
+export const TOP10_TIERED_REWARD_RANGES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+
+export const TOP10_TIERED_REWARD_PERCENTAGES = [
+  2900, 1700, 1200, 1000, 800, 690, 590, 490, 350, 280, 0,
+];
+
+export const TOP100_TIERED_REWARD_RANGES = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 16,
+
+  21, 26, 31, 36, 41, 51, 61, 76, 101,
+];
+
+export const TOP100_TIERED_REWARD_PERCENTAGES = [
+  2150, 1300, 740, 640, 540, 440, 320, 190, 160, 130, 600, 450, 275, 225, 190,
+  170, 300, 270, 360, 550, 0,
+];
