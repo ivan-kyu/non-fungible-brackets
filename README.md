@@ -1,4 +1,11 @@
 # Non Fungible Brackets Protocol
+
+## Intro
+This project demonstrates my building of an NFT game tracking real-life basketball tournament scores and allowing players to place their bets in the form of tournament brackets. 
+It implements The Diamond Standard (EIP-2535) as a structural pattern, allowing upgradeability and deployment of larger than 24KB size contracts. 
+It also utilizes a range of additional concepts such as TheGraph for indexing, OpenZeppelin MetaTransactions for gasless transactions, https://delegate.cash/ for token-gated access, and many more.
+
+
 ## Setup The Project
 - `npm install`
 - `cp .env.example .env` and populate the missing variables
